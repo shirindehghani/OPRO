@@ -3,18 +3,10 @@ from langchain import OpenAI, LLMChain, PromptTemplate
 from langchain.callbacks.base import BaseCallbackHandler
 import re
 
-def create_chain_from_template(template, input_variables,callbacks=[], verbose=True):
-    prompt = PromptTemplate(
-        input_variables=input_variables, template=template)
-    chain = LLMChain(
-        llm=HuggingFacePipeline(pipeline=text_pipeline), prompt=prompt, callbacks=callbacks, verbose=verbose)
+def create_chain_from_template(template, input_variables, temperature=0.5, callbacks=[], verbose=True):
+    prompt = PromptTemplate(input_variables=input_variables,template=template)
+    chain = LLMChain(llm=CustomLLM(temperature=temperature),prompt=prompt)
     return chain
-
-
-# def create_chain_from_template(template, input_variables, temperature=0.5, callbacks=[], verbose=True):
-#     prompt = PromptTemplate(input_variables=input_variables,template=template)
-#     chain = LLMChain(llm=CustomLLM(temperature=temperature),prompt=prompt)
-#     return chain
 
 def build_text_and_scores(performance_df):
     return ''.join([f"Instruction: <INS> {performance_df.iloc[i]['Instruction']}</INS>\nScore:{performance_df.iloc[i]['score']}\n" for i in range(len(performance_df))])
