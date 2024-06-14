@@ -11,6 +11,8 @@ from hugchat import hugchat
 from hugchat.login import Login
 from Prompts import email, passwd
 
+
+###########Llama3###########
 sign = Login(email, passwd)
 cookies = sign.login()
 

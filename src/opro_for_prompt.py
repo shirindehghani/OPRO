@@ -2,18 +2,21 @@ import pandas as pd
 from langchain import OpenAI, LLMChain, PromptTemplate
 from langchain.callbacks.base import BaseCallbackHandler
 from src.LLMs import CustomLLM
+from langchain.chat_models import ChatOpenAI
 import re
 
-def create_chain(template, input_variables, temperature=0.5, callbacks=[], verbose=True, llm="Llama3"):
+def create_chain(template, input_variables, temperature=0.5, callbacks=[], verbose=False, llm="Llama3"):
     if llm=="Llama3":
         prompt = PromptTemplate(input_variables=input_variables,template=template)
         chain = LLMChain(llm=CustomLLM(temperature=temperature),prompt=prompt)
-    elif llm=="GPT-3.5":
-       pass
-    elif llm=="Llama2-70":
-       pass
-    elif llm=="GPT-4":
-       pass
+    
+    if llm=="GPT-4":
+        prompt = PromptTemplate(input_variables=input_variables,template=template)
+        chain = LLMChain(llm=ChatOpenAI(model_name="gpt-4", temperature=temperature, max_tokens=1000), prompt=prompt,callbacks=callbacks,verbose=verbose)
+    
+    if llm=="GPT-3.5":
+        prompt = PromptTemplate(input_variables=input_variables, template=template)
+        chain = LLMChain(llm=OpenAI(temperature=temperature, max_tokens=1000), prompt=prompt, callbacks=callbacks, verbose=verbose)
     return chain
 
 def build_prompt_score(performance_df):
