@@ -1,3 +1,7 @@
+import os
+OPENAI_API_KEY="ENTER_YOUR_API_KEY"
+os.environ['OPENAI_API_KEY'] = OPENAI_API_KEY
+
 meta_prompt = """Your task is to generate the instruction <INS>. Below are some previous instructions with their scores. The score ranges from 0 to 1.
 
 {texts_and_scores}
