@@ -17,3 +17,6 @@ scorer_prompt = """
 Statement: {question}
 Label:
 """
+
+email=""
+passwd=""

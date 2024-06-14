@@ -9,9 +9,8 @@ from langchain_core.callbacks.manager import CallbackManagerForLLMRun
 from langchain_core.language_models.llms import LLM
 from hugchat import hugchat
 from hugchat.login import Login
+from Prompts import email, passwd
 
-email=""
-passwd=""
 sign = Login(email, passwd)
 cookies = sign.login()
 
