@@ -18,5 +18,5 @@ This project support Llama-3, GPT-4 and GPT-3.5 LLMs.
   journal={arXiv preprint arXiv:2309.03409},
   year={2023}
 }`
-\\
+<br/>
 [-Medium](https://medium.com/@minh.hoque/large-language-models-as-optimizers-explained-a20dc5e5c5af)
