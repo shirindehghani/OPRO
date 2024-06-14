@@ -3,15 +3,15 @@ from langchain import OpenAI, LLMChain, PromptTemplate
 from langchain.callbacks.base import BaseCallbackHandler
 import re
 
-def create_chain_from_template(template, input_variables, temperature=0.5, callbacks=[], verbose=True):
+def create_chain(template, input_variables, temperature=0.5, callbacks=[], verbose=True):
     prompt = PromptTemplate(input_variables=input_variables,template=template)
     chain = LLMChain(llm=CustomLLM(temperature=temperature),prompt=prompt)
     return chain
 
-def build_text_and_scores(performance_df):
+def build_prompt_score(performance_df):
     return ''.join([f"Instruction: <INS> {performance_df.iloc[i]['Instruction']}</INS>\nScore:{performance_df.iloc[i]['score']}\n" for i in range(len(performance_df))])
 
-def rank_instructions(performance_df,num_scores):
+def sort_instructions(performance_df,num_scores):
     performance_df = performance_df.sort_values(by='score')
     if len(performance_df) > num_scores:
         performance_df = performance_df.tail(num_scores)
@@ -52,14 +52,14 @@ def score_prompts(scorer_chain,prompts,eval_examples,performance_df):
   return performance_df
 
 def opro(optimizer_chain, scorer_chain, performance_df, df_train, df_eval,n_scores=10, n_prompts=2, max_iterations=1):
-    performance_df = rank_instructions(performance_df,n_scores)
+    performance_df = sort_instructions(performance_df,n_scores)
     for _ in range(max_iterations):
-        texts_and_scores = build_text_and_scores(performance_df)
+        texts_and_scores = build_prompt_score(performance_df)
         train_examples = sample_exemplars(df_train)
         prompts = generate_prompts(optimizer_chain,texts_and_scores,train_examples,n_prompts)
         prompts = [x.split("<INS>")[1] for x in prompts]
         prompts = [x.split("</INS>")[0] for x in prompts]
         eval_examples = df_eval
         performance_df = score_prompts(scorer_chain,prompts,eval_examples,performance_df)
-        performance_df = rank_instructions(performance_df,n_scores)
+        performance_df = sort_instructions(performance_df,n_scores)
     return performance_df
