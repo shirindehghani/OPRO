@@ -1,0 +1,4 @@
+hugchat
+langchain
+pandas
+numpy

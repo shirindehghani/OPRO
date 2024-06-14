@@ -3,7 +3,6 @@ from langchain import OpenAI, LLMChain, PromptTemplate
 from langchain.callbacks.base import BaseCallbackHandler
 from src.LLMs import CustomLLM
 from langchain.chat_models import ChatOpenAI
-import re
 
 def create_chain(template, input_variables, temperature=0.5, callbacks=[], verbose=False, llm="Llama3"):
     if llm=="Llama3":
