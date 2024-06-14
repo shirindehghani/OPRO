@@ -12,12 +12,14 @@ For using this code in your project, you should modify `configs.py` and also `ex
 This project support Llama-3, GPT-4 and GPT-3.5 LLMs.
 
 # Refrences
-`@article{yang2023large,
+```
+@article{yang2023large,
   title={Large language models as optimizers},
   author={Yang, Chengrun and Wang, Xuezhi and Lu, Yifeng and Liu, Hanxiao and Le, Quoc V and Zhou, Denny and Chen, Xinyun},
   journal={arXiv preprint arXiv:2309.03409},
   year={2023}
-}`
+}
+```
 <br/>
 [-Medium](https://medium.com/@minh.hoque/large-language-models-as-optimizers-explained-a20dc5e5c5af)
 <br/>
