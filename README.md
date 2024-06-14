@@ -20,3 +20,5 @@ This project support Llama-3, GPT-4 and GPT-3.5 LLMs.
 }`
 <br/>
 [-Medium](https://medium.com/@minh.hoque/large-language-models-as-optimizers-explained-a20dc5e5c5af)
+<br/>
+[-GitHub](https://github.com/google-deepmind/opro)
