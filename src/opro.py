@@ -1,6 +1,7 @@
 import pandas as pd
 from langchain import OpenAI, LLMChain, PromptTemplate
 from langchain.callbacks.base import BaseCallbackHandler
+from src.LLMs import CustomLLM
 import re
 
 def create_chain(template, input_variables, temperature=0.5, callbacks=[], verbose=True):
