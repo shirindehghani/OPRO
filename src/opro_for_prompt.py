@@ -4,9 +4,16 @@ from langchain.callbacks.base import BaseCallbackHandler
 from src.LLMs import CustomLLM
 import re
 
-def create_chain(template, input_variables, temperature=0.5, callbacks=[], verbose=True):
-    prompt = PromptTemplate(input_variables=input_variables,template=template)
-    chain = LLMChain(llm=CustomLLM(temperature=temperature),prompt=prompt)
+def create_chain(template, input_variables, temperature=0.5, callbacks=[], verbose=True, llm="Llama3"):
+    if llm=="Llama3":
+        prompt = PromptTemplate(input_variables=input_variables,template=template)
+        chain = LLMChain(llm=CustomLLM(temperature=temperature),prompt=prompt)
+    elif llm=="GPT-3.5":
+       pass
+    elif llm=="Llama2-70":
+       pass
+    elif llm=="GPT-4":
+       pass
     return chain
 
 def build_prompt_score(performance_df):
