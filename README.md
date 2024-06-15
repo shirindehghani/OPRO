@@ -3,7 +3,7 @@
 ![image](https://img.shields.io/badge/OpenAI-412991.svg?style=for-the-badge&logo=OpenAI&logoColor=white)
 </br>
 
-![image](https://github.com/shirindehghani/OPRO/blob/main/src/images/abstract.png)
+![image](https://github.com/shirindehghani/OPRO/blob/main/src/Assets/abstract.png)
 
 ### TODO :
 For using this code in your project, you should modify `configs.py` and also `extract_label()` function in `opro.py` file.
