@@ -1,6 +1,7 @@
 # OPRO (Large Language Models as Optimizers)
 ![image](https://img.shields.io/badge/-LangChain-32CD32?logo=LangChain&logoColor=white&style=for-the-badge)
 ![image](https://img.shields.io/badge/OpenAI-412991.svg?style=for-the-badge&logo=OpenAI&logoColor=white)
+![image](https://www.searchenginejournal.com/wp-content/uploads/2023/04/hugging-face-huggingchat-644a286dee829-sej.png)
 </br>
 
 ![image](https://github.com/shirindehghani/OPRO/blob/main/src/Assets/abstract.png)
