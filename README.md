@@ -1,4 +1,6 @@
 # OPRO (Large Language Models as Optimizers)
+![image](https://img.shields.io/badge/-LangChain-32CD32?logo=LangChain&logoColor=white&style=for-the-badge)
+![image](https://img.shields.io/badge/OpenAI-412991.svg?style=for-the-badge&logo=OpenAI&logoColor=white)
 
 ![image](https://github.com/shirindehghani/OPRO/blob/main/src/images/abstract.png)
 
@@ -8,7 +10,7 @@ For using this code in your project, you should modify `configs.py` and also `ex
 ### Instalation :
 `pip install -r requirements.txt`.
 
-This project support Llama-3, GPT-4 and GPT-3.5 LLMs.
+This project support Llama-3, GPT-4 and GPT-3.5 LLMs. The default mode is Llama-3.
 
 # Refrences
 ```
